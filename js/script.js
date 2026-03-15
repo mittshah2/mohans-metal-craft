@@ -21,14 +21,19 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile Dropdown Toggle
+    // Mobile Dropdown Toggle (Separate Text and Arrow)
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     if (dropdownToggle) {
         dropdownToggle.addEventListener('click', (e) => {
             if (window.innerWidth <= 768) {
-                e.preventDefault();
-                const parent = dropdownToggle.parentElement;
-                parent.classList.toggle('active');
+                // Toggle ONLY if arrow is clicked, or if the main link is clicked while already active?
+                // The user wants comfortable separate clicking.
+                if (e.target.classList.contains('arrow')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const parent = dropdownToggle.parentElement;
+                    parent.classList.toggle('active');
+                }
             }
         });
     }
