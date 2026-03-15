@@ -718,7 +718,7 @@ ul {
   box-shadow: var(--shadow-lg);
   margin-bottom: 3rem;
   position: relative;
-  overflow: hidden;
+  overflow: hidden; 
 }
 
 .founder-showcase.reverse {
