@@ -66,6 +66,37 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide + 1);
     }
 
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+    // Touch Support for Swiping
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const swipeThreshold = 50;
+    const heroSection = document.getElementById('home');
+
+    if (heroSection) {
+        heroSection.addEventListener('touchstart', e => {
+            touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+
+        heroSection.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].clientX;
+            handleSwipe();
+        }, { passive: true });
+    }
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX - swipeThreshold) {
+            nextSlide();
+            resetAutoPlay();
+        } else if (touchEndX > touchStartX + swipeThreshold) {
+            prevSlide();
+            resetAutoPlay();
+        }
+    }
+
 
 
     function startAutoPlay() {
