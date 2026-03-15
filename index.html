@@ -23,11 +23,21 @@
             </a>
             <nav class="nav" id="nav">
                 <ul class="nav-list">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#about" class="nav-link">About Us</a></li>
-                    <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="products.html" class="nav-link">Products</a></li>
-                    <li><a href="#contact" class="nav-link btn-contact">Contact</a></li>
+                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="products.html" class="nav-link dropdown-toggle">
+                            Products <span class="arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="architectural-sections.html">Architectural Sections</a></li>
+                            <li><a href="industrial-sections.html">Industrial Sections</a></li>
+                            <li><a href="solar-sections.html">Renewable Energy Sections</a></li>
+                            <li><a href="other-sections.html">Specialized Sections</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#contact" class="nav-link btn-contact">Contact</a></li>
                 </ul>
             </nav>
             <button class="mobile-toggle" aria-label="Toggle Navigation">
@@ -160,8 +170,29 @@
         <section class="section projects bg-light" id="projects">
             <div class="container">
                 <div class="section-header text-center">
-                    <h2 class="section-title">Prestigious Projects</h2>
-                    <p class="section-desc">Trusted by leading institutions, corporations, and government bodies.</p>
+                    <h2 class="section-title">Our Work in Numbers</h2>
+                    <p class="section-desc">A measurable legacy of quality, scale, and trusted execution.</p>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="stats-container">
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="1500">0</span><span class="stat-suffix">+</span>
+                        <p class="stat-label">Projects Delivered</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-divider"></div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-target="500">0</span><span class="stat-suffix">+</span>
+                        <p class="stat-label">Clients Served</p>
+                    </div>
+                </div>
+
+                <!-- Showcase Header -->
+                <div class="showcase-header text-center">
+                    <h3 class="showcase-title">Notable Projects</h3>
+                    <div class="showcase-underline"></div>
                 </div>
                 
                 <div class="projects-grid">

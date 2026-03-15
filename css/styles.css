@@ -222,11 +222,16 @@ ul {
   gap: 2rem;
 }
 
+.nav-item {
+  position: relative;
+}
+
 .nav-link {
   font-size: 0.95rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   position: relative;
+  transition: var(--transition);
 }
 
 .nav-link:not(.btn-contact)::after {
@@ -240,12 +245,85 @@ ul {
   transition: var(--transition);
 }
 
-.nav-link:not(.btn-contact):hover::after {
+.nav-link:not(.btn-contact):hover::after,
+.nav-item.dropdown:hover > .nav-link::after {
   width: 100%;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-item.dropdown:hover > .nav-link {
   color: white;
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 15px);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  background-color: #0f172a;
+  min-width: 250px;
+  padding: 0.8rem 0;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  z-index: 1000;
+}
+
+/* Invisible bridge to prevent menu closing when moving cursor to dropdown */
+.nav-item.dropdown::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+}
+
+.nav-item.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.7rem 1.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  font-weight: 400;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--color-secondary);
+  padding-left: 1.8rem;
+}
+
+.dropdown-toggle {
+  display: flex !important;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arrow {
+  font-size: 0.6rem;
+  transition: transform 0.3s ease;
+  opacity: 0.7;
+}
+
+.nav-item.dropdown:hover .arrow {
+  transform: rotate(180deg);
+  opacity: 1;
 }
 
 .btn-contact {
@@ -719,6 +797,77 @@ ul {
 /* =========================================
    PROJECTS SECTION
 ========================================= */
+.stats-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto 5rem auto;
+  padding: 3rem;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--color-border);
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-divider {
+  width: 1px;
+  height: 80px;
+  background: var(--color-border);
+  margin: 0 auto;
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: inline-block;
+  min-width: 2.5ch;
+}
+
+.stat-suffix {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+  vertical-align: top;
+  margin-top: 0.5rem;
+  display: inline-block;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-top: 0.5rem;
+}
+
+.showcase-header {
+  margin-bottom: 3.5rem;
+}
+
+.showcase-title {
+  font-size: 2.2rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.showcase-underline {
+  width: 60px;
+  height: 4px;
+  background-color: var(--color-secondary);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -994,7 +1143,48 @@ ul {
     align-items: center;
     justify-content: center;
     height: 100%;
-    gap: 2rem;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    overflow-y: auto;
+  }
+
+  .nav-item {
+    width: 100%;
+    text-align: center;
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    background: rgba(255, 255, 255, 0.05);
+    min-width: 100%;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    border-radius: 0;
+  }
+
+  .nav-item.dropdown.active .dropdown-menu {
+    max-height: 500px;
+    margin-top: 0.5rem;
+  }
+
+  .dropdown-menu a {
+    text-align: center;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .dropdown-menu a:hover {
+    padding-left: 1.5rem;
+  }
+
+  .dropdown-toggle {
+    justify-content: center;
   }
 
   .vision-mission {

@@ -23,11 +23,21 @@
             </a>
             <nav class="nav" id="nav">
                 <ul class="nav-list">
-                    <li><a href="index.html#home" class="nav-link">Home</a></li>
-                    <li><a href="index.html#about" class="nav-link">About Us</a></li>
-                    <li><a href="index.html#projects" class="nav-link">Projects</a></li>
-                    <li><a href="products.html" class="nav-link">Products</a></li>
-                    <li><a href="index.html#contact" class="nav-link btn-contact">Contact</a></li>
+                    <li class="nav-item"><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="index.html#about" class="nav-link">About Us</a></li>
+                    <li class="nav-item"><a href="index.html#projects" class="nav-link">Projects</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="products.html" class="nav-link dropdown-toggle">
+                            Products <span class="arrow">▼</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="architectural-sections.html">Architectural Sections</a></li>
+                            <li><a href="industrial-sections.html">Industrial Sections</a></li>
+                            <li><a href="solar-sections.html">Renewable Energy Sections</a></li>
+                            <li><a href="other-sections.html">Specialized Sections</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="index.html#contact" class="nav-link btn-contact">Contact</a></li>
                 </ul>
             </nav>
             <button class="mobile-toggle" aria-label="Toggle Navigation">
