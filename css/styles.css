@@ -567,60 +567,34 @@ ul {
 /* Slider Controls */
 .slider-dots {
   position: absolute;
-  bottom: 3rem;
-  left: max(2rem, calc((100% - var(--container-width)) / 2 + 15px));
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  gap: 0.8rem;
+  gap: 1rem;
   z-index: 20;
   align-items: center;
 }
 
 .dot {
-  width: 20px;
-  height: 3px;
-  border-radius: 2px;
-  background-color: rgba(255, 255, 255, 0.3);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
   cursor: pointer;
   transition: var(--transition);
-  border: none;
+  border: 2px solid transparent;
   padding: 0;
+}
+
+.dot:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .dot.active {
   background-color: var(--color-secondary);
-  width: 40px;
-}
-
-.slider-nav {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%);
-  display: flex;
-  justify-content: space-between;
-  padding: 0 2rem;
-  z-index: 20;
-}
-
-.nav-btn {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(5px);
-  color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  transition: var(--transition);
-}
-
-.nav-btn:hover {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
+  transform: scale(1.2);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* =========================================
@@ -1077,7 +1051,7 @@ ul {
 ========================================= */
 @media (max-width: 992px) {
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 3rem;
   }
   
   .hero-subtitle {
@@ -1116,6 +1090,10 @@ ul {
 @media (max-width: 768px) {
   .header-content {
     height: 70px;
+  }
+
+  .logo {
+    font-size: 1.4rem;
   }
 
   .mobile-toggle {
@@ -1179,12 +1157,69 @@ ul {
     padding: 0.8rem 1.5rem;
   }
 
-  .dropdown-menu a:hover {
-    padding-left: 1.5rem;
-  }
-
   .dropdown-toggle {
     justify-content: center;
+  }
+
+  /* Hero Mobile Fixes */
+  .hero {
+    height: 100vh;
+    text-align: center;
+  }
+
+  .slide-content-left {
+    text-align: center;
+    padding: 0 1.5rem;
+  }
+
+  .hero-title {
+    font-size: 2.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-subtitle {
+    margin: 0 auto 2rem auto;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .hero-cta {
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .btn-hero, .btn-hero-secondary {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+  }
+
+
+
+  /* Stats Section Mobile */
+  .stats-container {
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .stat-divider {
+    width: 80px;
+    height: 1px;
+    margin: 0.5rem auto;
+  }
+
+  .stat-number {
+    font-size: 2.8rem;
+  }
+
+  .stat-suffix {
+    font-size: 2rem;
   }
 
   .vision-mission {
@@ -1192,9 +1227,26 @@ ul {
   }
 
   .hero-cta {
-    flex-direction: column;
-    width: 100%;
-    max-width: 300px;
-    margin: 0;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-kicker {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .stats-container {
+    padding: 1.5rem 1rem;
   }
 }

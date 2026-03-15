@@ -46,8 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hero Slider
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
+
     
     let currentSlide = 0;
     const slideInterval = 5000; // 5 seconds
@@ -67,9 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         showSlide(currentSlide + 1);
     }
 
-    function prevSlide() {
-        showSlide(currentSlide - 1);
-    }
+
 
     function startAutoPlay() {
         autoPlay = setInterval(nextSlide, slideInterval);
@@ -78,20 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function resetAutoPlay() {
         clearInterval(autoPlay);
         startAutoPlay();
-    }
-
-    if(nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetAutoPlay();
-        });
-    }
-
-    if(prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetAutoPlay();
-        });
     }
 
     dots.forEach((dot, index) => {
