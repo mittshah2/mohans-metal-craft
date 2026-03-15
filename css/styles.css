@@ -141,8 +141,11 @@ ul {
 }
 
 .btn-primary:hover {
-  background-color: transparent;
-  color: var(--color-primary);
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .btn-secondary {
@@ -154,6 +157,8 @@ ul {
 .btn-secondary:hover {
   background-color: white;
   color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* =========================================
