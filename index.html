@@ -40,15 +40,61 @@
     <main>
         <!-- Hero Section -->
         <section class="hero" id="home">
-            <div class="container hero-content">
-                <h1 class="hero-title">Premium Aluminium Sections<br><span class="hero-highlight">Since 1972</span></h1>
-                <p class="hero-subtitle">Elevating spaces with high-quality aluminium solutions in various premium finishes.</p>
-                <div class="hero-cta">
-                    <a href="#catalog" class="btn btn-primary">Explore Catalog</a>
-                    <a href="#about" class="btn btn-secondary">Our Legacy</a>
+            <div class="slider-container">
+                <!-- Slide 1: Who We Are & Legacy -->
+                <div class="slide active">
+                    <div class="slide-bg">
+                        <img src="images/banner/1.png" alt="Mohans Metal Craft Legacy">
+                    </div>
+                    <div class="container slide-content">
+                        <h1 class="hero-title">A Legacy of <span class="hero-highlight">50+ Years</span></h1>
+                        <p class="hero-subtitle">Leading the wholesale aluminium industry with half a century of expertise and excellence.</p>
+                        <div class="hero-cta">
+                            <a href="#about" class="btn btn-primary">Our Story</a>
+                            <a href="#projects" class="btn btn-secondary">Our Projects</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2: Quality Focus -->
+                <div class="slide">
+                    <div class="slide-bg">
+                        <img src="images/banner/2.png" alt="Uncompromising Quality">
+                    </div>
+                    <div class="container slide-content">
+                        <h1 class="hero-title">Precision & <span class="hero-highlight">Excellence</span></h1>
+                        <p class="hero-subtitle">Premium aluminium sections with superior finishes like powder coating and colour anodizing.</p>
+                        <div class="hero-cta">
+                            <a href="#catalog" class="btn btn-primary">Browse Quality</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: Custom Solutions -->
+                <div class="slide">
+                    <div class="slide-bg">
+                        <img src="images/banner/3.png" alt="Customized Solutions">
+                    </div>
+                    <div class="container slide-content">
+                        <h1 class="hero-title">Customized <span class="hero-highlight">Solutions</span></h1>
+                        <p class="hero-subtitle">Tailored sections for doors, windows, facades, and specialized industrial needs.</p>
+                        <div class="hero-cta">
+                            <a href="#contact" class="btn btn-primary">Get a Quote</a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hero-overlay"></div>
+
+            <!-- Slider Controls -->
+            <div class="slider-nav">
+                <button class="nav-btn prev-btn" aria-label="Previous Slide">&#10094;</button>
+                <button class="nav-btn next-btn" aria-label="Next Slide">&#10095;</button>
+            </div>
+            <div class="slider-dots">
+                <span class="dot active" data-index="0"></span>
+                <span class="dot" data-index="1"></span>
+                <span class="dot" data-index="2"></span>
+            </div>
         </section>
 
         <!-- About Section -->
