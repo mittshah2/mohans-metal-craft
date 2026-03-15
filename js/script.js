@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Close mobile menu when clicking a link
-    const navLinks = document.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
+    const closeMenuLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-menu a');
+    closeMenuLinks.forEach(link => {
         link.addEventListener('click', () => {
             if(nav.classList.contains('active')) {
                 nav.classList.remove('active');
@@ -20,6 +20,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Mobile Dropdown Toggle
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                const parent = dropdownToggle.parentElement;
+                parent.classList.toggle('active');
+            }
+        });
+    }
 
     // Header scroll background effect
     const header = document.querySelector('.header');
@@ -92,5 +104,42 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize AutoPlay
     if(slides.length > 0) {
         startAutoPlay();
+    }
+
+    // Counter Animation
+    const counters = document.querySelectorAll('.stat-number');
+    const statSection = document.querySelector('.stats-container');
+
+    const countUp = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+        const duration = 2000; // 2 seconds animation
+        const frameRate = 1000 / 60; // 60fps
+        const totalFrames = duration / frameRate;
+        const increment = target / totalFrames;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(() => countUp(counter), frameRate);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    const observerOptions = {
+        threshold: 0.2
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                counters.forEach(counter => countUp(counter));
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    if (statSection) {
+        counterObserver.observe(statSection);
     }
 });
